@@ -4,7 +4,7 @@ import utileriasNombre from './utileriasNombre';
 const useNombre = () => {
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
-    const [nombreCompleto, setNombreCompleto] = useState('');
+    const [nombreCompleto, setNombreCompleto] = useState('Ned Stark');
     const { concatenaNombreCompleto } = utileriasNombre();
     
     function calculaNombreCompleto() {
