@@ -16,7 +16,7 @@ describe('Pruebas de Home', () => {
 
         // Then
         await waitFor(() => {
-            screen.debug();
+            //screen.debug();
             const actualOutput = screen.getByTestId('nombreCompleto').props.children
             expect(actualOutput).toBe(expectedOutput)
         }, { timeout: 5000 });
