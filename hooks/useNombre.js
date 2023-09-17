@@ -1,14 +1,14 @@
 import {useState}  from 'react';
-import utileriasNombre from './utileriasNombre';
+import utileriasNombre from '../utils/utileriasNombre';
 
 const useNombre = () => {
     const [nombre, setNombre] = useState('');
     const [apellido, setApellido] = useState('');
-    const [nombreCompleto, setNombreCompleto] = useState('Ned Stark');
+    const [nombreCompleto, setNombreCompleto] = useState('');
     const { concatenaNombreCompleto } = utileriasNombre();
     
     function calculaNombreCompleto() {
-        var nuevoNombreCompleto = concatenaNombreCompleto(nombre, apellido);
+        let nuevoNombreCompleto = concatenaNombreCompleto(nombre, apellido);
         setNombreCompleto(nuevoNombreCompleto);
     }
 
