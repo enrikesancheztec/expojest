@@ -16,21 +16,22 @@ const screenOptions = {
 };
 
 const ListarPersonas = () => {
-    const { abrirCrearPersona, theme } = useListarPersonas();
+    const { personas, abrirCrearPersona } = useListarPersonas();
     funcionAbrirCrearPersona = abrirCrearPersona;
+  
+    let listaPersonas = [];
+
+    if (personas !== undefined) {
+        personas.forEach((persona, index) => {
+            listaPersonas.push(<ListItem key={persona.id} title={persona.nombre + " " + persona.apellido} />);
+        });    
+    }
 
     return (
         <>
             <Stack.Screen options={screenOptions} />
-            <ListItem
-                title="Jon Snow"
-            />
-            <ListItem
-                title="Cersei Lannister"
-            />
-            <ListItem
-                title="Ned Stark"
-            />
+
+            {listaPersonas}
         </>
     )
 }
