@@ -16,7 +16,28 @@ const PersonasAPI = () => {
         return response;
     }
 
-    return { getTodasPersonas }
+    async function savePersona(persona) {
+        let response = null;
+
+        try {
+            response = await axios.post(`${baseUrl}/personas`, persona);
+
+            let data = response.data;
+            console.log(data);
+        } catch (error) {
+            if (error.response) {
+                if (error.response.status === 400) {
+                    console.log("Invalid Parameter");
+                }
+            }
+
+            console.log("Error: " + error);
+        }
+
+        return response;
+    }
+
+    return { getTodasPersonas, savePersona }
 }
 
 export default PersonasAPI;
