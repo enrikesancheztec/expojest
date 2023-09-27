@@ -20,10 +20,7 @@ const PersonasAPI = () => {
         let response = null;
 
         try {
-            response = await axios.post(`${baseUrl}/personas`, persona);
-
-            let data = response.data;
-            console.log(data);
+            response = await axios.post(`${baseUrl}/personas`, persona)
         } catch (error) {
             if (error.response) {
                 if (error.response.status === 400) {

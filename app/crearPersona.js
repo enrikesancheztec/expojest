@@ -15,7 +15,6 @@ const CrearPersona = () => {
 
     return (
         <MaterialStack spacing={2} style={{ margin: 16 }}>
-            <Stack.Screen options={{ title: "Crear Persona" }} />
             {snackBar}
             <TextInput
                 style={{ height: 40 }}

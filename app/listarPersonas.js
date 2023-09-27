@@ -1,7 +1,5 @@
 import React from 'react';
-import { ListItem, IconButton } from "@react-native-material/core";
-import Ionicons from '@expo/vector-icons/Ionicons';
-import { Stack } from "expo-router";
+import { ListItem, Button, Text } from "@react-native-material/core";
 import useListarPersonas from "../hooks/useListarPersonas";
 
 let funcionAbrirCrearPersona = null;
@@ -9,9 +7,7 @@ let funcionAbrirCrearPersona = null;
 const screenOptions = {
     title: "Listar Personas",
     headerRight: () => (
-        <IconButton onTouchEnd={funcionAbrirCrearPersona} 
-            icon={props => <Ionicons name='add-outline' size={32} />}
-       />
+        <Button accessibilityLabel="crearPersona" variant="text" title="+" color="primary" onTouchEnd={funcionAbrirCrearPersona} />
     ),
 };
 
@@ -29,8 +25,7 @@ const ListarPersonas = () => {
 
     return (
         <>
-            <Stack.Screen options={screenOptions} />
-
+            <Button accessibilityLabel="crearPersona" variant="text" title="+" color="primary" onTouchEnd={funcionAbrirCrearPersona} />
             {listaPersonas}
         </>
     )
