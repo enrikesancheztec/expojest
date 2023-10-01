@@ -1,15 +1,21 @@
 import React from 'react';
 import { Stack } from "expo-router";
-import { Stack as MaterialStack, TextInput, Button } from "@react-native-material/core";
+import { Stack as MaterialStack, TextInput, Button, Snackbar } from "@react-native-material/core";
 import useCrearPersona from '../hooks/useCrearPersona';
 
 
 const CrearPersona = () => {
-    const { nombre, setNombre, apellido, setApellido, guardaPersonaCreada } = useCrearPersona();
+    const { error, nombre, setNombre, apellido, setApellido, guardaPersonaCreada } = useCrearPersona();
+
+    let snackBar = null;
+
+    if (error) {
+        snackBar = <Snackbar message="Invalid Input."/>
+    }
 
     return (
         <MaterialStack spacing={2} style={{ margin: 16 }}>
-            <Stack.Screen options={{ title: "Crear Persona" }} />
+            {snackBar}
             <TextInput
                 style={{ height: 40 }}
                 label="Nombre" variant="standard"
